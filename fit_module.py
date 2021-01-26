@@ -3,7 +3,6 @@ from user_defined_functions import createDirectories
 from user_defined_functions import deleteFiles
 import ROOT
 ROOT.gROOT.SetBatch(True)
-# import sys
 
 
 def fitFunc(mass_index, Dictionary, param_fixed=False, intermediate=False):
@@ -18,9 +17,9 @@ def fitFunc(mass_index, Dictionary, param_fixed=False, intermediate=False):
     # ----------------------------------------------------------------
     # Open the ROOT input file
     if not intermediate:
-        histoFileName = "JEF_dark_scalar_MCsimu_signal_v3.root"
+        histoFileName = "./rootfiles/JEF_dark_scalar_MCsimu_signal_v3.root"
     else:
-        histoFileName = "JEF_dark_scalar_MCsimu_signal_v3-QC.root"
+        histoFileName = "./rootfiles/JEF_dark_scalar_MCsimu_signal_v3-QC.root"
 
     histoFile = ROOT.TFile.Open(histoFileName, "READ")
 

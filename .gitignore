@@ -1,2 +1,4 @@
 .mynotes.txt
 rootfiles
+__pycache__/
+.~lock.mainDict.csv#

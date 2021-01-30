@@ -1,5 +1,6 @@
 .mynotes.txt
 rootfiles
 fit_module
+parameter_fit_module
 __pycache__/
 .~lock.mainDict.csv#

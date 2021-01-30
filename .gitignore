@@ -1,10 +1,5 @@
 .mynotes.txt
 rootfiles
-<<<<<<< HEAD
 fit_module
 __pycache__/
 .~lock.mainDict.csv#
-
-=======
-__pycache__/
->>>>>>> fit_module

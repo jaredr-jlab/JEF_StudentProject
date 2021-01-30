@@ -1,5 +1,4 @@
 from user_defined_functions import createDirectories
-from user_defined_functions import deleteFiles
 import csv
 import ROOT
 ROOT.gROOT.SetBatch(True)
@@ -14,7 +13,6 @@ def parameterFitFunc(paramName):
     createDirectories('./parameter_fit_module/parameter_fit_plots')
 
     # Get Mass Values
-    # ---------------------------------------------------------------
     mass = []
     with open('./mainDict.csv', newline='') as mainDict:
         reader = csv.DictReader(mainDict)
@@ -39,8 +37,11 @@ def parameterFitFunc(paramName):
     graph.SetMarkerColor(4)
     graph.SetMarkerStyle(24)
     graph.SetLineColor(4)
-     # Try graph.SetMinimum(0)
-    graph.Draw('AEP MIN0')   
+    if paramName == 'ar':
+        graph.SetMaximum(0)
+    else:
+        graph.SetMinimum(0)
+    graph.Draw('AEP')   
 
     # Select order of polynomial for parameters
     if paramName == 'sigmaL' or paramName == 'sigmaR':
@@ -58,11 +59,8 @@ def parameterFitFunc(paramName):
     f = ROOT.TF1("", pol, mass[0], mass[-1])
     f.SetLineColor(2)
     f.SetLineStyle(1)
-    graph.Fit(f, "MRS")  # Options "MRS"
+    graph.Fit(f, "MRS")
     f.Draw("Same")
-
-    # Update the canvas
-    # c1.Update()
 
     # Save an image of the canvas
     c1.SaveAs("./parameter_fit_module/parameter_fit_plots/main_{}_fit.pdf".format(paramName))
@@ -74,7 +72,7 @@ def parameterFitFunc(paramName):
     ofile.Close()
 
 
-def main(init_mass_index=3, final_mass_index=9, intermediate=False):
+def main():
     paramNameList = ['al', 'ar', 'mean', 'sigmaL', 'sigmaR', 'A0', 'nl', 'nr']
     for paramName in paramNameList:
         parameterFitFunc(paramName)

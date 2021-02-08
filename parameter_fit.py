@@ -9,8 +9,8 @@ def parameterFitFunc(paramName):
     and draw the fit on the a canvas"""
 
     # File Handling
-    createDirectories('./parameter_fit_module/parameter_rootfiles')
-    createDirectories('./parameter_fit_module/parameter_fit_plots')
+    createDirectories('./parameter_fit_output/parameter_rootfiles')
+    createDirectories('./parameter_fit_output/parameter_fit_plots')
 
     # Get Mass Values
     mass = []
@@ -29,7 +29,7 @@ def parameterFitFunc(paramName):
 
     # Specifiy .csv file containing parameter values
     fileFormat = "%lg%lg%lg%lg"
-    filename = "./fit_module/parameter_values/main_{}.csv".format(paramName)
+    filename = "./fit_2cball_output/parameter_values/main_{}.csv".format(paramName)
 
     # Create TGraphErrors
     graph = ROOT.TGraphErrors(filename, fileFormat, ",")
@@ -63,10 +63,10 @@ def parameterFitFunc(paramName):
     f.Draw("Same")
 
     # Save an image of the canvas
-    c1.SaveAs("./parameter_fit_module/parameter_fit_plots/main_{}_fit.pdf".format(paramName))
+    c1.SaveAs("./parameter_fit_output/parameter_fit_plots/main_{}_fit.pdf".format(paramName))
 
     # Create ROOT file of fit
-    rootFileName = "./parameter_fit_module/parameter_rootfiles/main_{}.root".format(paramName)
+    rootFileName = "./parameter_fit_output/parameter_rootfiles/main_{}.root".format(paramName)
     ofile = ROOT.TFile(rootFileName,  "RECREATE")
     f.Write("fct_{}".format(paramName))
     ofile.Close()

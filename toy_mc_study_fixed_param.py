@@ -11,7 +11,7 @@ def toyMCFunc(histoFileName):
 
     # File handling
     #--------------------------------------------------------------------------
-    outputDir = './toy_mc_study_fixed_param_output/plots/'
+    outputDir = '../output/toy_mc_study_fixed_param_output/plots/'
     createDirectories(outputDir)
 
     # Retrieve parameter values
@@ -24,25 +24,25 @@ def toyMCFunc(histoFileName):
             mass.append(float(row['mass']))
             
     # Open the parameter ROOT files
-    sigmaLFile = ROOT.TFile.Open("./parameter_fit_output"\
+    sigmaLFile = ROOT.TFile.Open("../output/parameter_fit_output"\
                                  "/parameter_rootfiles/main_sigmaL.root",
                                  "READ")
-    sigmaRFile = ROOT.TFile.Open("./parameter_fit_output"\
+    sigmaRFile = ROOT.TFile.Open("../output/parameter_fit_output"\
                                  "/parameter_rootfiles/main_sigmaR.root",
                                  "READ")
-    A0File = ROOT.TFile.Open("./parameter_fit_output"\
+    A0File = ROOT.TFile.Open("../output/parameter_fit_output"\
                              "/parameter_rootfiles/main_A0.root",
                              "READ")
-    alFile = ROOT.TFile.Open("./parameter_fit_output"\
+    alFile = ROOT.TFile.Open("../output/parameter_fit_output"\
                              "/parameter_rootfiles/main_al.root",
                              "READ")
-    arFile = ROOT.TFile.Open("./parameter_fit_output"\
+    arFile = ROOT.TFile.Open("../output/parameter_fit_output"\
                              "/parameter_rootfiles/main_ar.root",
                              "READ")
-    nlFile = ROOT.TFile.Open("./parameter_fit_output"\
+    nlFile = ROOT.TFile.Open("../output/parameter_fit_output"\
                              "/parameter_rootfiles/main_nl.root",
                              "READ")
-    nrFile = ROOT.TFile.Open("./parameter_fit_output"\
+    nrFile = ROOT.TFile.Open("../output/parameter_fit_output"\
                              "/parameter_rootfiles/main_nr.root",
                              "READ")
 

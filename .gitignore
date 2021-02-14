@@ -1,7 +1,5 @@
 .mynotes.txt
 rootfiles/
-output/fit_2cball_output/
-output/parameter_fit_output/
-output/toy_mc_study_fixed_param_output/
+output
 __pycache__/
 .~lock.mainDict.csv#

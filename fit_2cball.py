@@ -16,9 +16,9 @@ def fitFunc(histoFileName):
 
     # File Handling
     # --------------------------------------------------------------
-    createDirectories('../output/fit_2cball_output/parameter_values')
-    createDirectories('../output/fit_2cball_output/fit_plots')
-    deleteFiles('../output/fit_2cball_output/parameter_values/main_*.csv')
+    createDirectories('./output/fit_2cball_output/parameter_values')
+    createDirectories('./output/fit_2cball_output/fit_plots')
+    deleteFiles('./output/fit_2cball_output/parameter_values/main_*.csv')
 
     # Initialize Parameter Values
     # --------------------------------------------------------------
@@ -223,7 +223,7 @@ def fitFunc(histoFileName):
 
         # Save a pdf of the canvas
         # ----------------------------------------------------------
-        c.SaveAs("../output/fit_2cball_output/fit_plots/" + kname + ".pdf")
+        c.SaveAs("./output/fit_2cball_output/fit_plots/" + kname + ".pdf")
 
         # Export Fitted Parameters
         # ---------------------------------------------------------
@@ -246,21 +246,21 @@ def fitFunc(histoFileName):
         ernr = cbnR.getError()
 
         # Write fitted values to files
-        with open("../output/fit_2cball_output/parameter_values/main_al.csv", 'a+') as f_al:
+        with open("./output/fit_2cball_output/parameter_values/main_al.csv", 'a+') as f_al:
             f_al.write("{},{},0,{}\n".format(mass[index], al, eral))
-        with open("../output/fit_2cball_output/parameter_values/main_ar.csv", 'a+') as f_ar:
+        with open("./output/fit_2cball_output/parameter_values/main_ar.csv", 'a+') as f_ar:
             f_ar.write("{},{},0,{}\n".format(mass[index], ar, erar))
-        with open("../output/fit_2cball_output/parameter_values/main_mean.csv", 'a+') as f_mean:
+        with open("./output/fit_2cball_output/parameter_values/main_mean.csv", 'a+') as f_mean:
             f_mean.write("{},{},0,{}\n".format(mass[index], mean, ermean))
-        with open("../output/fit_2cball_output/parameter_values/main_sigmaL.csv", 'a+') as f_sigmal:
+        with open("./output/fit_2cball_output/parameter_values/main_sigmaL.csv", 'a+') as f_sigmal:
             f_sigmal.write("{},{},0,{}\n".format(mass[index], sigmal, ersigmal))
-        with open("../output/fit_2cball_output/parameter_values/main_sigmaR.csv", 'a+') as f_sigmar:
+        with open("./output/fit_2cball_output/parameter_values/main_sigmaR.csv", 'a+') as f_sigmar:
             f_sigmar.write("{},{},0,{}\n".format(mass[index], sigmar, ersigmar))
-        with open("../output/fit_2cball_output/parameter_values/main_A0.csv", 'a+') as f_A0:
+        with open("./output/fit_2cball_output/parameter_values/main_A0.csv", 'a+') as f_A0:
             f_A0.write("{},{},0,{}\n".format(mass[index], A0, erA0))
-        with open("../output/fit_2cball_output/parameter_values/main_nl.csv", 'a+') as f_nl:
+        with open("./output/fit_2cball_output/parameter_values/main_nl.csv", 'a+') as f_nl:
             f_nl.write("{},{},0,{}\n".format(mass[index], nl, ernl))
-        with open("../output/fit_2cball_output/parameter_values/main_nr.csv", 'a+') as f_nr:
+        with open("./output/fit_2cball_output/parameter_values/main_nr.csv", 'a+') as f_nr:
             f_nr.write("{},{},0,{}\n".format(mass[index], nr, ernr))
 
 

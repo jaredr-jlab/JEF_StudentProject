@@ -2,6 +2,7 @@ from user_defined_functions import createDirectories
 from user_defined_functions import deleteFiles
 import csv
 import sys
+import math
 import ROOT
 ROOT.gROOT.SetBatch(True)
 
@@ -11,7 +12,7 @@ def toyMCFunc(histoFileName):
 
     # File handling
     #--------------------------------------------------------------------------
-    outputDir = '../output/toy_mc_study_fixed_param_output/plots/'
+    outputDir = './output/toy_mc_study_fixed_param_output/plots/'
     createDirectories(outputDir)
 
     # Retrieve parameter values
@@ -24,25 +25,25 @@ def toyMCFunc(histoFileName):
             mass.append(float(row['mass']))
             
     # Open the parameter ROOT files
-    sigmaLFile = ROOT.TFile.Open("../output/parameter_fit_output"\
+    sigmaLFile = ROOT.TFile.Open("./output/parameter_fit_output"\
                                  "/parameter_rootfiles/main_sigmaL.root",
                                  "READ")
-    sigmaRFile = ROOT.TFile.Open("../output/parameter_fit_output"\
+    sigmaRFile = ROOT.TFile.Open("./output/parameter_fit_output"\
                                  "/parameter_rootfiles/main_sigmaR.root",
                                  "READ")
-    A0File = ROOT.TFile.Open("../output/parameter_fit_output"\
+    A0File = ROOT.TFile.Open("./output/parameter_fit_output"\
                              "/parameter_rootfiles/main_A0.root",
                              "READ")
-    alFile = ROOT.TFile.Open("../output/parameter_fit_output"\
+    alFile = ROOT.TFile.Open("./output/parameter_fit_output"\
                              "/parameter_rootfiles/main_al.root",
                              "READ")
-    arFile = ROOT.TFile.Open("../output/parameter_fit_output"\
+    arFile = ROOT.TFile.Open("./output/parameter_fit_output"\
                              "/parameter_rootfiles/main_ar.root",
                              "READ")
-    nlFile = ROOT.TFile.Open("../output/parameter_fit_output"\
+    nlFile = ROOT.TFile.Open("./output/parameter_fit_output"\
                              "/parameter_rootfiles/main_nl.root",
                              "READ")
-    nrFile = ROOT.TFile.Open("../output/parameter_fit_output"\
+    nrFile = ROOT.TFile.Open("./output/parameter_fit_output"\
                              "/parameter_rootfiles/main_nr.root",
                              "READ")
 
@@ -73,8 +74,6 @@ def toyMCFunc(histoFileName):
         # Calculate Parameter Values
         # ---------------------------------------------------------------------
         mea = mass[index]
-        von = mea - 0.2
-        bis = mea + 0.2
     
         # Evaluate parameter functions at masses
         sigmaL = fct_sigmaL.Eval(mea)
@@ -84,6 +83,10 @@ def toyMCFunc(histoFileName):
         aR = fct_ar.Eval(mea)
         nL = fct_nl.Eval(mea)
         nR = fct_nr.Eval(mea)
+
+        ww = math.sqrt(fracL * sigmaL**2 + (1 - fracL) * sigmaR**2)
+        von = mea - 3 * ww
+        bis = mea + 3 * ww
 
         # Set up model
         # ---------------------------------------------------------------------

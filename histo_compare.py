@@ -60,8 +60,8 @@ def histoCompare(modelFileName, histoFileName):
         fracL = fct_A0.Eval(mea)
 
         ww = math.sqrt(fracL * sigmaL**2 + (1 - fracL) * sigmaR**2)
-        von = mea - 3 * ww
-        bis = mea + 3 * ww
+        von = mea - 3.0 * ww
+        bis = mea + 3.0 * ww
 
         # Draw Model and Histo
         #----------------------------------------------------------------------
@@ -78,12 +78,14 @@ def histoCompare(modelFileName, histoFileName):
 
         # Ratio Test
         #----------------------------------------------------------------
+        von = mea - 1.0 * ww
+        bis = mea + 1.0 * ww
         c1 = ROOT.TCanvas("c1{}".format(index), "c1{}".format(index), 500, 500)
         c1.GetFrame().SetFillColor(21)
         c1.GetFrame().SetBorderSize(12)
         h_ratio = histo.Clone()
         h_ratio.Divide(model)
-        # h_ratio.Add(model, -1)
+        h_ratio.SetAxisRange(von, bis)
         h_ratio_histo = ROOT.TH1F('Histo_Ratio{}'.format(index), '', 100, -2.0, 2.0)
         binMin = h_ratio.FindBin(von)
         binMax = h_ratio.FindBin(bis)

@@ -5,8 +5,8 @@ ROOT.gROOT.SetBatch(True)
 
 
 def parameterFitFunc(paramName):
-    """Fit parameters with respect to mass
-    and draw the fit on the a canvas"""
+    """Fit parameters with respect to mass, draw the fit on a canvas,
+    and create rootfiles for the parameters."""
 
     # File Handling
     createDirectories('./output/parameter_fit_output/parameter_rootfiles')

@@ -8,7 +8,8 @@ ROOT.gROOT.SetBatch(True)
 
 
 def createHistoModel(histoFileName_QC):
-    """..."""
+    """Generates histograms via a model built from Crystal Ball
+    parameter functions."""
 
     # File handling
     #--------------------------------------------------------------------------

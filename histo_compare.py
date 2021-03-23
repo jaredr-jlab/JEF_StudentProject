@@ -99,8 +99,8 @@ def histoCompare(modelFileName, histoFileName):
         rms = h_ratio_histo.GetRMS()
         h_ratio.SetTitle("Histo/Model m={}".format(mea))
         h_ratio.Draw()
-        print(rms)
-        print(h_ratio_histo.GetMean())  # systematic error
+        print(rms) # 1-rms = systematic error
+        print(h_ratio_histo.GetMean())
         c1.SaveAs(outputDir + 'Ratio_{}.png'.format(index))
 
         # Pull

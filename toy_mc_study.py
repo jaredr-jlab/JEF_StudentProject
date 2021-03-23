@@ -8,7 +8,11 @@ ROOT.gROOT.SetBatch(True)
 
 
 def toyMCFunc(histoFileName):
-    """..."""
+    """Calculates CBall parameters from parameter function stored in root files,
+    builds a model from the sum of two CBalls and the number of signal events
+    from the left CBall, fits the model to the histogram dataset, creates a 
+    Monte Carlo study of the model, and plots the study's number of signal
+    events, their error, and their pull distribution."""
 
     # File handling
     #--------------------------------------------------------------------------

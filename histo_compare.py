@@ -7,7 +7,9 @@ ROOT.gROOT.SetBatch(True)
 
 
 def histoCompare(modelFileName, histoFileName):
-    """..."""
+    """Compares the generated histogram model with the quality control
+    histograms, plots the model on the quality control histogram,
+    performs a ratio test between them, and plots their pull distribution."""
 
     # File handling
     #--------------------------------------------------------------------------

@@ -7,12 +7,10 @@ ROOT.gROOT.SetBatch(True)
 
 
 def fitFunc(histoFileName):
-    """Builds a model from a sum of two CBalls, fits the model
-    to the histogram data set, plots the model with pulls to two frames,
-    and draws the frames on a canvas.  The boolean, param_fixed=False,
-    allows the parameter values to float; set param_fixed=True to fix the
-    parameter values.  The boolean, intermediate=False, fits the main
-    fixed masses; set intermediate=True to fit the intermediate masses."""
+    """Builds a model from a sum of two CBalls, fits the model to the 
+    histogram data set, plots the model with pull distribution to two 
+    frames, draws the frames on a canvas, and exports the parameters 
+    of the fitted model."""
 
     # File Handling
     # --------------------------------------------------------------
